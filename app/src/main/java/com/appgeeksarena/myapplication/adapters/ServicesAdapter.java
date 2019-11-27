@@ -24,7 +24,7 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     private OnServiceClicked onServiceClicked;
     private Context context;
 
-    public ServicesAdapter(List<Service> serviceList, OnServiceClicked onServiceClicked, Context context) {
+    public ServicesAdapter(List<Service> serviceList, Context context ,  OnServiceClicked onServiceClicked) {
         this.serviceList = serviceList;
         this.onServiceClicked = onServiceClicked;
         this.context = context;
