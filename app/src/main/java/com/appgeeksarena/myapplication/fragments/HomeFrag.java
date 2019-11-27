@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.appgeeksarena.myapplication.R;
 import com.appgeeksarena.myapplication.VideoViewActivity;
@@ -61,7 +62,7 @@ public class HomeFrag extends Fragment {
         servicesAdapter = new ServicesAdapter(serviceList, getActivity(), new OnServiceClicked() {
             @Override
             public void onClick(Service service) {
-
+                Toast.makeText(getActivity(), service.getTitle() , Toast.LENGTH_SHORT).show();
             }
         });
 
