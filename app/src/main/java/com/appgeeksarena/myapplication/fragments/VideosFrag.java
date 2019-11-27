@@ -11,13 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.appgeeksarena.myapplication.R;
 import com.appgeeksarena.myapplication.VideoViewActivity;
-import com.appgeeksarena.myapplication.adapters.VideosAdapter;
+import com.appgeeksarena.myapplication.adapters.ContentAdapter;
 import com.appgeeksarena.myapplication.interfaces.OnVideoItemClicked;
-import com.appgeeksarena.myapplication.models.Video;
+import com.appgeeksarena.myapplication.models.Content;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -30,7 +29,7 @@ public class VideosFrag extends Fragment {
 
    private RecyclerView recyclerView;
    private RecyclerView.Adapter videosAdapter;
-   private List<Video> videoList;
+   private List<Content> contentList;
 
 
 
@@ -48,19 +47,19 @@ public class VideosFrag extends Fragment {
       recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
       recyclerView.setHasFixedSize(true);
 
-      videoList = new ArrayList();
+      contentList = new ArrayList();
 
-      videoList.addAll(Arrays.asList(
-              new Video("Lower Back Pain", R.drawable.lbp, "link", "A video to demonstrate "),
-              new Video("Knee osteoarthiritis", R.drawable.lbp, "link", "A video to demonstrate "),
-              new Video("Tibia After cast Removal", R.drawable.logo, "link", "A video to demonstrate "),
-              new Video("Lower Back Pain", R.drawable.logo, "link", "A video to demonstrate "),
-              new Video("Lower Back Pain", R.drawable.lbp, "link", "A video to demonstrate ")
+      contentList.addAll(Arrays.asList(
+              new Content("Lower Back Pain", R.drawable.lbp, "link", "A video to demonstrate "),
+              new Content("Knee osteoarthiritis", R.drawable.lbp, "link", "A video to demonstrate "),
+              new Content("Tibia After cast Removal", R.drawable.logo, "link", "A video to demonstrate "),
+              new Content("Lower Back Pain", R.drawable.logo, "link", "A video to demonstrate "),
+              new Content("Lower Back Pain", R.drawable.lbp, "link", "A video to demonstrate ")
               ));
 
-      videosAdapter = new VideosAdapter(videoList, getActivity(), new OnVideoItemClicked() {
+      videosAdapter = new ContentAdapter(contentList, getActivity(), new OnVideoItemClicked() {
           @Override
-          public void onclick(Video video) {
+          public void onclick(Content content) {
 
               startActivity(new Intent(getActivity(), VideoViewActivity.class));
 

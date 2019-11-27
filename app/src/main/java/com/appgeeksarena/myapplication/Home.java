@@ -42,6 +42,9 @@ public class Home extends AppCompatActivity {
 
         if(item.getItemId() == R.id.nav_notification){
             startActivity(new Intent(getApplicationContext(), Notifications.class));
+        }else if(item.getItemId() == R.id.nav_logout){
+            startActivity(new Intent(getApplicationContext(), Splash.class));
+            finish();
         }
         return true;
     }

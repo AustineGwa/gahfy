@@ -12,9 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.appgeeksarena.myapplication.R;
 import com.appgeeksarena.myapplication.interfaces.OnServiceClicked;
-import com.appgeeksarena.myapplication.interfaces.OnVideoItemClicked;
 import com.appgeeksarena.myapplication.models.Service;
-import com.appgeeksarena.myapplication.models.Video;
 
 import java.util.List;
 

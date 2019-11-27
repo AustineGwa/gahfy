@@ -1,12 +1,10 @@
 package com.appgeeksarena.myapplication.fragments;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -15,13 +13,9 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.appgeeksarena.myapplication.R;
-import com.appgeeksarena.myapplication.VideoViewActivity;
 import com.appgeeksarena.myapplication.adapters.ServicesAdapter;
-import com.appgeeksarena.myapplication.adapters.VideosAdapter;
 import com.appgeeksarena.myapplication.interfaces.OnServiceClicked;
-import com.appgeeksarena.myapplication.interfaces.OnVideoItemClicked;
 import com.appgeeksarena.myapplication.models.Service;
-import com.appgeeksarena.myapplication.models.Video;
 
 import java.util.ArrayList;
 import java.util.Arrays;

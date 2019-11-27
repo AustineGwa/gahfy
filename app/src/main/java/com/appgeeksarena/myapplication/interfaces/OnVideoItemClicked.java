@@ -1,8 +1,8 @@
 package com.appgeeksarena.myapplication.interfaces;
 
-import com.appgeeksarena.myapplication.models.Video;
+import com.appgeeksarena.myapplication.models.Content;
 
 public interface OnVideoItemClicked {
 
- void onclick(Video video);
+ void onclick(Content content);
 }
