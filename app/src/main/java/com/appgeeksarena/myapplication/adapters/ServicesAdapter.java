@@ -11,20 +11,22 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.appgeeksarena.myapplication.R;
+import com.appgeeksarena.myapplication.interfaces.OnServiceClicked;
 import com.appgeeksarena.myapplication.interfaces.OnVideoItemClicked;
+import com.appgeeksarena.myapplication.models.Service;
 import com.appgeeksarena.myapplication.models.Video;
 
 import java.util.List;
 
 public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.ServicesViewHolder> {
 
-    private List<Video> videoList;
-    private OnVideoItemClicked onVideoItemClicked;
+    private List<Service> serviceList;
+    private OnServiceClicked onServiceClicked;
     private Context context;
 
-    public ServicesAdapter(List<Video> videoList,  Context context, OnVideoItemClicked onVideoItemClicked) {
-        this.videoList = videoList;
-        this.onVideoItemClicked = onVideoItemClicked;
+    public ServicesAdapter(List<Service> serviceList, OnServiceClicked onServiceClicked, Context context) {
+        this.serviceList = serviceList;
+        this.onServiceClicked = onServiceClicked;
         this.context = context;
     }
 
@@ -33,42 +35,42 @@ public class ServicesAdapter extends RecyclerView.Adapter<ServicesAdapter.Servic
     public ServicesAdapter.ServicesViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.service_row,parent,false );
-        ServicesViewHolder videosViewHolder = new ServicesViewHolder(view, onVideoItemClicked);
+        ServicesViewHolder videosViewHolder = new ServicesViewHolder(view, onServiceClicked);
         return videosViewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ServicesViewHolder holder, int position) {
-      holder.serviceImage.setImageResource(R.drawable.ic_chat_black_24dp);
-      holder.serviceTitle.setText("Chat");
+      holder.serviceImage.setImageResource(serviceList.get(position).getThumbnail());
+      holder.serviceTitle.setText(serviceList.get(position).getTitle());
 
     }
 
     @Override
     public int getItemCount() {
-        return videoList.size();
+        return serviceList.size();
     }
 
     class ServicesViewHolder extends RecyclerView.ViewHolder implements  View.OnClickListener{
 
         TextView serviceTitle;
         ImageView serviceImage;
-        OnVideoItemClicked onVideoItemClicked;
+        OnServiceClicked onServiceClicked;
 
-        public ServicesViewHolder(@NonNull View itemView, OnVideoItemClicked onVideoItemClicked) {
+        public ServicesViewHolder(@NonNull View itemView, OnServiceClicked onServiceClicked) {
             super(itemView);
 
             serviceTitle = itemView.findViewById(R.id.service_title);
             serviceImage = itemView.findViewById(R.id.service_thumbnail);
 
-            this.onVideoItemClicked = onVideoItemClicked;
+            this.onServiceClicked = onServiceClicked;
             itemView.setOnClickListener(this);
 
         }
 
         @Override
         public void onClick(View v) {
-            onVideoItemClicked.onclick(videoList.get(getAdapterPosition()));
+            onServiceClicked.onClick(serviceList.get(getAdapterPosition()));
         }
     }
 }
