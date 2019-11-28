@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.appgeeksarena.myapplication">
 
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,7 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Notifications"
+        <activity android:name=".MyProfile"></activity>
+        <activity android:name=".MyDoctor" />
+        <activity android:name=".Chat" />
+        <activity
+            android:name=".Notifications"
             android:label="Notifications" />
         <activity
             android:name=".VideoViewActivity"

@@ -1,6 +1,8 @@
 package com.appgeeksarena.myapplication.fragments;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -12,6 +14,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.appgeeksarena.myapplication.Chat;
+import com.appgeeksarena.myapplication.MyDoctor;
 import com.appgeeksarena.myapplication.R;
 import com.appgeeksarena.myapplication.adapters.ServicesAdapter;
 import com.appgeeksarena.myapplication.interfaces.OnServiceClicked;
@@ -56,7 +60,26 @@ public class HomeFrag extends Fragment {
         servicesAdapter = new ServicesAdapter(serviceList, getActivity(), new OnServiceClicked() {
             @Override
             public void onClick(Service service) {
-                Toast.makeText(getActivity(), service.getTitle() , Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), service.getTitle() , Toast.LENGTH_SHORT).show();
+
+                if(service.getTitle().equals("Emergency")){
+
+                    Intent callIntent =new Intent(Intent.ACTION_DIAL);
+                    callIntent.setData(Uri.parse("tel:0718728894"));
+                    startActivity(callIntent);
+
+                }else if(service.getTitle().equals("Chat")){
+
+                    startActivity(new Intent(getActivity(), Chat.class));
+
+                }else if(service.getTitle().equals("My Doctor")){
+
+                    startActivity(new Intent(getActivity(), MyDoctor.class));
+
+                }else if(service.getTitle().equals("My Profile")){
+
+                }
+
             }
         });
 
